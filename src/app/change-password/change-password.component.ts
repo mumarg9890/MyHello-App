@@ -55,35 +55,6 @@ export class ChangePasswordComponent implements OnInit {
     //   console.log(x);
     // });
     // client validation
-    let clientUrl = 'https://stgmobile.tibchannels.com/identity/connect/token';
-    let httpParams: HttpParams = new HttpParams()
-      .set('grant_type', 'client_credentials')
-      .set('client_id', 'mobapp')
-      .set('client_secret', 'Tib_mobs34_Ch7annel')
-      .set('scope', 'tibchannel');
-    let options = {
-      headers: new HttpHeaders().set(
-        'Content-Type',
-        'application/x-www-form-urlencoded'
-      ),
-      observe: 'response',
-    };
-    this.postService.postRequest<any>(clientUrl, httpParams).subscribe((x) => {
-      if (x.Error && x.Error instanceof HttpErrorResponse) {
-        console.log('client login::error catched in component', x.Error);
-      } else console.log('client login:common post method result', x);
-    });
-    // user login
-    let authURL = 'https://stgmobile.tibchannels.com/api/user/login';
-    let body = {
-      userName: 'rafi23',
-      password: 'Rafi1!',
-    };
-    this.postService.postRequest<any>(authURL, body).subscribe((x) => {
-      if (x.Error && x.Error instanceof HttpErrorResponse) {
-        console.log('user login:error catched in component', x.Error);
-      } else console.log('user login:common post method result', x);
-    });
 
     // display mosh followers assignment github.
     let moshFollowersURL =
