@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy:gh": "ng build --prod --base-href-='https://mumarg9890.github.io/MyHello-App/' && ngh --dir dist/HelloWorldApp"
+    "deploy:gh": "ng build --prod --base-href='https://mumarg9890.github.io/MyHello-App/' && ngh --dir dist/HelloWorldApp"
   },
   "private": true,
   "dependencies": {
