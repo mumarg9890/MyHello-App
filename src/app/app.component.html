@@ -1,0 +1,120 @@
+<ul class="nav nav-tabs">
+  <li role="presentation">
+    <a routerLink="/switchCase" routerLinkActive="active">switch case</a>
+  </li>
+  <li role="presentation">
+    <a routerLink="/tempForm" routerLinkActive="active">Temp form</a>
+  </li>
+  <li role="presentation">
+    <a routerLink="/reactiveForms" routerLinkActive="active">ReactiveForms</a>
+  </li>
+  <li role="presentation">
+    <a routerLink="/formArrayReactive" routerLinkActive="active"
+      >FormArrayReactive</a
+    >
+  </li>
+  <li role="presentation">
+    <a routerLink="/changePassword" routerLinkActive="active">ChangePassword</a>
+  </li>
+  <li role="presentation">
+    <a routerLink="/logout" routerLinkActive="active">Logout</a>
+  </li>
+</ul>
+
+<router-outlet></router-outlet>
+
+<div class="content" role="main">
+  <h1>html rendered in app component not from router</h1>
+  <div>
+    <h1>This is likes component</h1>
+    <likes [likesCount]="10" [IsActive]="true"></likes>
+  </div>
+  <div>
+    <h1>Here is my favourite component</h1>
+    <favorite [isliked]="true" (onFavouriteChnage)="FavouriteChanged($event)">
+    </favorite>
+  </div>
+  <input [(ngModel)]="inputField" class="form-control" />
+  <span>{{ inputField | titleCase }}</span>
+  <app-child-com
+    [ParentComponentName]="appcomp"
+    [ParentComponentValue]="appValue"
+    (newItemEvent)="AddItems($event)"
+  >
+  </app-child-com>
+</div>
+<div>
+  <ul>
+    <li *ngFor="let item of items" (click)="RemoveItem(item)">
+      {{ item | uppercase }}
+    </li>
+  </ul>
+</div>
+
+<div>
+  <h1>Authers List</h1>
+  <ul>
+    <li *ngFor="let aut of authers">{{ aut }}</li>
+  </ul>
+</div>
+<div [style.backgroundColor]="colorActive ? 'salmon' : 'blue'">
+  <table>
+    <thead>
+      <tr>
+        <th>column1</th>
+        <th>column2</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td [attr.colspan]="colspan">row1Col1</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<button class="btn btn-danger">bootstrapButton</button>
+<h1>Boot strap panel component here</h1>
+<bootstrap-panel>
+  <ng-container class="heading">heading</ng-container>
+  <!-- <div class="heading">Panel heading</div> -->
+  <div class="body">
+    Panel body
+    <h1 [ngStyle]="myStyles">custom html here</h1>
+  </div>
+</bootstrap-panel>
+
+<!-- <div>
+  <h1>Switch case test component</h1>
+  <switchcasetest></switchcasetest>
+</div> -->
+
+<div>
+  <h1>Input Formatter applied on field</h1>
+  <input class="form-control" type="text" appInputFormat />
+</div>
+<div>
+  <h1>Zippy component</h1>
+  <zippy title="shopping details"> shopping details </zippy>
+</div>
+<!-- <div>
+  <h1>Contact Form (Template driven forms)</h1>
+  <contact-form></contact-form>
+</div> -->
+<div>
+  <h1>Course Form</h1>
+  <course-form></course-form>
+</div>
+<!-- <div>
+  <h1>Reactive forms module</h1>
+  <signup-form></signup-form>
+</div> -->
+
+<!-- <div>
+  <h1>Form Array Reactive forms</h1>
+  <new-course-form></new-course-form>
+</div> -->
+
+<!-- <div>
+  <h1>Password change assignment</h1>
+  <change-password></change-password>
+</div> -->

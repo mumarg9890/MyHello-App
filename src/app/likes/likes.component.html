@@ -1,0 +1,10 @@
+<span
+  class="glyphicon"
+  [ngClass]="IsActive ? 'glyphicon-heart' : 'glyphicon-heart-empty'"
+  (click)="LikeClicked()"
+  [style.color]="IsActive ? 'red' : '#CCC'"
+>
+</span>
+<span> {{ likesCount }}</span>
+
+<!-- glyphicon-heart-empty -->

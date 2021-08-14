@@ -1,0 +1,59 @@
+<h1>Dynamic form starts</h1>
+<form [formGroup]="usersForm" (ngSubmit)="onUsersSubmit()">
+  <div formArrayName="users">
+    <ng-container
+      *ngFor="let userFormGroup of usersArray.controls; let i = index"
+    >
+      <div [formGroupName]="i">
+        <label>
+          <button class="btn btn-danger" (click)="removeControl(i)">
+            remove below formGroup
+          </button>
+        </label>
+        <div class="for-group">
+          <label for=""></label>
+          <input type="text" class="form-control" formControlName="gHService" />
+        </div>
+        <div class="for-group">
+          <label for=""></label>
+          <input type="text" class="form-control" formControlName="quantity" />
+        </div>
+        <div class="for-group">
+          <label for=""></label>
+          <input type="text" class="form-control" formControlName="startTime" />
+        </div>
+        <div class="for-group">
+          <label for=""></label>
+          <input type="text" class="form-control" formControlName="endTime" />
+        </div>
+        <div class="for-group">
+          <label for=""></label>
+          <input type="text" class="form-control" formControlName="remarks" />
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+<button class="btn btn-success" (click)="addControl()">
+  add new user formGroup
+</button>
+<h1>Dynamic form ends</h1>
+<form>
+  <input
+    class="form-control"
+    type="text"
+    (keyup.enter)="AddNewTopic(topic)"
+    #topic
+  />
+</form>
+
+<ul class="list-group">
+  <li
+    class="list-group-item"
+    *ngFor="let topic of topicsArray?.controls"
+    (click)="RemoveTopic(topic)"
+  >
+    {{ topic.value }}
+  </li>
+</ul>
